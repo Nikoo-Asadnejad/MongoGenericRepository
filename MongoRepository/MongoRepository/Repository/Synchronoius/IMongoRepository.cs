@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace MongoRepository.Repository
 
     void InsertMany(ICollection<TDocument> models);
 
-    void Update(TDocument model);
+    void Update(TDocument model , UpdateDefinition<TDocument> updateDefinition);
 
     void Delete(Expression<Func<TDocument, bool>> filterExpression);
 

@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace MongoRepository.Repository
     Task<TDocument> FindByIdAsync(string id);
     Task InsertAsync(TDocument model);
     Task InsertManyAsync(ICollection<TDocument> models);
-    Task UpdateAsync(TDocument model);
+    Task UpdateAsync(TDocument model , UpdateDefinition<TDocument> updateDefinition);
     Task DeleteAsync(Expression<Func<TDocument, bool>> filterExpression);
     Task DeleteByIdAsync(string id);
     Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression);
