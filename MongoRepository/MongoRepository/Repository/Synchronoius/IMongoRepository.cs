@@ -27,6 +27,10 @@ namespace MongoRepository.Repository
 
     void Update(TDocument model , UpdateDefinition<TDocument> updateDefinition);
 
+    void ReplaceOne(TDocument model);
+
+    void ReplaceMany(List<TDocument> models);
+
     void Delete(Expression<Func<TDocument, bool>> filterExpression);
 
     void DeleteById(string id);

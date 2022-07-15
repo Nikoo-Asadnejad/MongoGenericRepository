@@ -61,6 +61,19 @@ namespace MongoRepository.Repository
       await _collection.UpdateOneAsync(filter, updateDefenition);
     }
 
+    public async Task ReplaceOneAsync(TDocument model)
+    {
+      var filter = Builders<TDocument>.Filter.Eq(x => x.Id, model.Id);
+      await _collection.ReplaceOneAsync(filter,model);
+    }
+
+    public async Task ReplaceManyAsync(List<TDocument> models)
+    {
+      models.ForEach(async model =>
+         await _collection.ReplaceOneAsync(Builders<TDocument>.Filter.Eq(x => x.Id, model.Id), model));
+    }
+
+
     public async Task DeleteAsync(Expression<Func<TDocument, bool>> filterExpression)
     => await _collection.FindOneAndDeleteAsync(filterExpression);
 

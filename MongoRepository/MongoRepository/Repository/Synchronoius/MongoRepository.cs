@@ -45,6 +45,18 @@ namespace MongoRepository.Repository
       _collection.UpdateOne(filter, updateDefinition);
     }
 
+    public void ReplaceOne(TDocument model)
+    {
+      var filter = Builders<TDocument>.Filter.Eq(x => x.Id, model.Id);
+       _collection.ReplaceOne(filter, model);
+    }
+
+    public void ReplaceMany(List<TDocument> models)
+    {
+      models.ForEach(model =>
+      _collection.ReplaceOne(Builders<TDocument>.Filter.Eq(x => x.Id, model.Id), model));
+    }
+
     public void Delete(Expression<Func<TDocument, bool>> filterExpression)
     => _collection.DeleteOne(filterExpression);
 

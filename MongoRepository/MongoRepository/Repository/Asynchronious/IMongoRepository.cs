@@ -21,6 +21,8 @@ namespace MongoRepository.Repository
     Task InsertAsync(TDocument model);
     Task InsertManyAsync(ICollection<TDocument> models);
     Task UpdateAsync(TDocument model , UpdateDefinition<TDocument> updateDefinition);
+    Task ReplaceOneAsync(TDocument model);
+    Task ReplaceManyAsync(List<TDocument> models);
     Task DeleteAsync(Expression<Func<TDocument, bool>> filterExpression);
     Task DeleteByIdAsync(string id);
     Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression);
