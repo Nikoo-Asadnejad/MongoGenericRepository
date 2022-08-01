@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MongoRepository</id>
+    <version>1.0.0</version>
+    <authors>MongoRepository</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="MongoDB.Bson" version="2.16.1" exclude="Build,Analyzers" />
+        <dependency id="MongoDB.Driver" version="2.16.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\web development\projects\MongoRepository\MongoRepository\MongoRepository\bin\Release\net6.0\MongoRepository.dll" target="lib\net6.0\MongoRepository.dll" />
+  </files>
+</package>

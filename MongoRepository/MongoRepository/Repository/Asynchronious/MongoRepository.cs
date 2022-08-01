@@ -14,7 +14,7 @@ using MongoRepository.Models;
 
 namespace MongoRepository.Repository
 {
-  public partial class MongoRepository<TDocument> : IMongoRepository<TDocument>  where TDocument : Document
+  public partial class MongoRepository<TDocument> : IMongoRepository<TDocument>  where TDocument : MongoDocument
   {
     private readonly IConfiguration _configuration;
     private readonly IMongoCollection<TDocument> _collection;
@@ -72,7 +72,6 @@ namespace MongoRepository.Repository
       models.ForEach(async model =>
          await _collection.ReplaceOneAsync(Builders<TDocument>.Filter.Eq(x => x.Id, model.Id), model));
     }
-
 
     public async Task DeleteAsync(Expression<Func<TDocument, bool>> filterExpression)
     => await _collection.FindOneAndDeleteAsync(filterExpression);
