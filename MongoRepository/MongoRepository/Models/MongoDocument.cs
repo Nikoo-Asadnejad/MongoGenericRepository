@@ -14,7 +14,7 @@ public abstract class MongoDocument
   [BsonId]
   [BsonRequired]
   [BsonRepresentation(BsonType.ObjectId)]
-  public ObjectId Id { get; set; }
+  public virtual ObjectId Id { get; set; }
   public long CreateDate { get => CreateDate; set => Id.CreationTime.ToUniversalTime(); }
   public long CreateBy { get; set; }
   public long? DeleteDate { get; set; }
