@@ -12,7 +12,7 @@ public class MongoCollectionAttribute : Attribute
   public string CollectionName { get; }
   public MongoCollectionAttribute(string collectionName)
   {
-    collectionName = collectionName;
+    CollectionName = collectionName;
   }
 }
 
