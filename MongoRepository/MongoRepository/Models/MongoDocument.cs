@@ -15,10 +15,15 @@ public abstract class MongoDocument
   [BsonRequired]
   [BsonRepresentation(BsonType.ObjectId)]
   public virtual ObjectId Id { get; set; }
-  public long CreateDate { get => CreateDate; set => Id.CreationTime.ToUniversalTime(); }
+  public long CreateDate { get; set ; }
   public long CreateBy { get; set; }
   public long? DeleteDate { get; set; }
   public long? DeleteBy { get; set; }
+
+  public MongoDocument()
+  {
+    CreateDate = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+  }  
 
 }
 
