@@ -11,10 +11,15 @@ namespace MongoRepository.Utils
   {
     public static string GetCollectionName(Type collection)
     => ((MongoCollectionAttribute)collection
-              .GetCustomAttributes(typeof(MongoCollectionAttribute),true)
+              .GetCustomAttributes(typeof(MongoCollectionAttribute), true)
               .FirstOrDefault())?.CollectionName;
 
 
-    
+    public static string GetDataBaseName(Type collection)
+   => ((MongoCollectionAttribute)collection
+             .GetCustomAttributes(typeof(MongoCollectionAttribute), true)
+             .FirstOrDefault())?.DataBaseName;
+
+
   }
 }

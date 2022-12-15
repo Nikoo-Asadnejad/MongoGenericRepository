@@ -10,9 +10,11 @@ namespace MongoRepository.Atrributes;
 public class MongoCollectionAttribute : Attribute
 {
   public string CollectionName { get; }
-  public MongoCollectionAttribute(string collectionName)
+  public string DataBaseName { get; }
+  public MongoCollectionAttribute(string collectionName, string dataBaseName = null)
   {
     CollectionName = collectionName;
+    DataBaseName = dataBaseName;
   }
 }
 

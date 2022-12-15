@@ -21,7 +21,9 @@ namespace MongoRepository.Repository
     public MongoRepository(IConfiguration configuration)
     {
       _configuration = configuration;
-      string databaseName = _configuration["MongoDb:DatabaseName"];
+      string databaseName = CollectionsUtils.GetDataBaseName(typeof(TDocument))
+                            ?? _configuration["MongoDb:DatabaseName"];
+
       string connectionString  = _configuration["MongoDb:ConnectionString"];
 
       var database = new MongoClient(connectionString).GetDatabase(databaseName);
