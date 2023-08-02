@@ -26,7 +26,8 @@ namespace MongoRepository.Repository
     Task DeleteAsync(Expression<Func<TDocument, bool>> filterExpression);
     Task DeleteByIdAsync(string id);
     Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression);
-    Task<bool> IsExist(Expression<Func<TDocument, bool>> query);
+    Task DeleteManyAsync(List<TDocument> models);
+    Task<bool> IsExist(Expression<Func<TDocument, bool>> filterExpression);
     Task<bool> IsExist(string id);
     void DropCollection();
     Task RenameCollectionAsync(string newName);
@@ -36,5 +37,7 @@ namespace MongoRepository.Repository
     Task CreateIndexesAsync(IEnumerable<CreateIndexModel<TDocument>> models);
     Task CreateIndexesAsync(Dictionary<string, CreateIndexOptions<TDocument>> keyOptions);
     Task GetIndexListAsync(IEnumerable<string> keynames);
+    Task<long> CountAllDocumentsAsync();
+    Task<long> CountDocumentsAsync(Expression<Func<TDocument, bool>> filterExpression);
   }
 }

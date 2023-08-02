@@ -65,7 +65,7 @@ namespace MongoRepository.Repository
       var filter = Builders<TDocument>.Filter.Eq(x => x.Id, model.Id);
       await _collection.UpdateOneAsync(filter, updateDefenition);
     }
-
+    
     public async Task ReplaceOneAsync(TDocument model)
     {
       var filter = Builders<TDocument>.Filter.Eq(x => x.Id, model.Id);
@@ -103,8 +103,8 @@ namespace MongoRepository.Repository
       await _collection.DeleteManyAsync(filter);
     }
 
-    public async Task<bool> IsExist(Expression<Func<TDocument, bool>> query)
-      =>await  _collection.AsQueryable().AnyAsync(query);
+    public async Task<bool> IsExist(Expression<Func<TDocument, bool>> filterExpression)
+      =>await  _collection.AsQueryable().AnyAsync(filterExpression);
     
     public async Task<bool> IsExist(string id)
       => await _collection.AsQueryable().AnyAsync(x=> x.Id.Equals(id));
@@ -141,6 +141,11 @@ namespace MongoRepository.Repository
     public async Task GetIndexListAsync(IEnumerable<string> keynames)
     => await _collection.Indexes.ListAsync();
     
+    public async Task<long> CountAllDocumentsAsync()
+      => await _collection.CountDocumentsAsync(_collectionName);
+    
+    public async Task<long> CountDocumentsAsync(Expression<Func<TDocument, bool>> filterExpression)
+      => await _collection.CountDocumentsAsync(filterExpression);
 
   }
 }
