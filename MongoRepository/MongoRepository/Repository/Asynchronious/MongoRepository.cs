@@ -114,11 +114,33 @@ namespace MongoRepository.Repository
 
     public async Task RenameCollectionAsync(string newName)
       => await _database.RenameCollectionAsync(_collectionName ,newName);
+    
+    public async Task DropAllIndexesAsync()
+      => await _collection.Indexes.DropAllAsync();
 
-   
+    public async Task DropIndexAsync(string indexName)
+      => await _collection.Indexes.DropOneAsync(indexName);
 
+    public async Task CreateIndexAsync(string indexName , CreateIndexOptions options = null)
+      => await _collection.Indexes.CreateOneAsync(indexName, options);
 
-
+    public async Task CreateIndexesAsync(IEnumerable< CreateIndexModel<TDocument>> models)
+    => await _collection.Indexes.CreateManyAsync(models);
+    
+    public async Task CreateIndexesAsync(Dictionary<string,CreateIndexOptions<TDocument>> keyOptions)
+    {
+      List<CreateIndexModel<TDocument>> models = new ();
+      foreach (var keyOption in keyOptions)
+      {
+        models.Add(new CreateIndexModel<TDocument>(keyOption.Key ,keyOption.Value));
+      }
+      
+      await _collection.Indexes.CreateManyAsync(models);
+    }
+    
+    public async Task GetIndexListAsync(IEnumerable<string> keynames)
+    => await _collection.Indexes.ListAsync();
+    
 
   }
 }

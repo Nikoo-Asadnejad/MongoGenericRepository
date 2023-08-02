@@ -29,5 +29,12 @@ namespace MongoRepository.Repository
     Task<bool> IsExist(Expression<Func<TDocument, bool>> query);
     Task<bool> IsExist(string id);
     void DropCollection();
+    Task RenameCollectionAsync(string newName);
+    Task DropAllIndexesAsync();
+    Task DropIndexAsync(string indexName);
+    Task CreateIndexAsync(string indexName, CreateIndexOptions options = null);
+    Task CreateIndexesAsync(IEnumerable<CreateIndexModel<TDocument>> models);
+    Task CreateIndexesAsync(Dictionary<string, CreateIndexOptions<TDocument>> keyOptions);
+    Task GetIndexListAsync(IEnumerable<string> keynames);
   }
 }
