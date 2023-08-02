@@ -101,9 +101,10 @@ namespace MongoRepository.Repository
     }
 
     public async Task<bool> IsExist(Expression<Func<TDocument, bool>> query)
-      => _collection.AsQueryable().Any(query);
+      =>await  _collection.AsQueryable().AnyAsync(query);
     
     public async Task<bool> IsExist(string id)
-      => _collection.AsQueryable().Any(x=> x.Id.Equals(id));
+      => await _collection.AsQueryable().AnyAsync(x=> x.Id.Equals(id));
+    
   }
 }
