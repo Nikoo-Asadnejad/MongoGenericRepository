@@ -10,6 +10,7 @@ using MongoRepository.Utils;
 using System.Linq.Expressions;
 using MongoDB.Bson;
 using System.Reflection;
+using MongoDB.Driver.Linq;
 using MongoRepository.Models;
 
 namespace MongoRepository.Repository
@@ -18,16 +19,18 @@ namespace MongoRepository.Repository
   {
     private readonly IConfiguration _configuration;
     private readonly IMongoCollection<TDocument> _collection;
+    private readonly IMongoDatabase _database;
+    private string? _databaseName = CollectionsUtils.GetDataBaseName(typeof(TDocument));
+    private readonly string _collectionName = CollectionsUtils.GetCollectionName(typeof(TDocument));
     public MongoRepository(IConfiguration configuration)
     {
       _configuration = configuration;
-      string databaseName = CollectionsUtils.GetDataBaseName(typeof(TDocument))
-                            ?? _configuration["MongoDb:DatabaseName"];
+      _databaseName = string.IsNullOrWhiteSpace(_databaseName) ? _configuration["MongoDb:DatabaseName"] : _databaseName;
 
       string connectionString  = _configuration["MongoDb:ConnectionString"];
 
-      var database = new MongoClient(connectionString).GetDatabase(databaseName);
-      _collection = database.GetCollection<TDocument>(CollectionsUtils.GetCollectionName(typeof(TDocument)));
+      _database = new MongoClient(connectionString).GetDatabase(_databaseName);
+      _collection = _database.GetCollection<TDocument>(_collectionName);
     }
 
     public async Task<IQueryable<TDocument>> AsQueryable()
@@ -105,6 +108,11 @@ namespace MongoRepository.Repository
     
     public async Task<bool> IsExist(string id)
       => await _collection.AsQueryable().AnyAsync(x=> x.Id.Equals(id));
+    
+    public void DropCollection()
+    => _database.DropCollection(_collectionName);
+    
+    
     
   }
 }
