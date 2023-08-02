@@ -111,8 +111,14 @@ namespace MongoRepository.Repository
     
     public void DropCollection()
     => _database.DropCollection(_collectionName);
-    
-    
-    
+
+    public async Task RenameCollectionAsync(string newName)
+      => await _database.RenameCollectionAsync(_collectionName ,newName);
+
+   
+
+
+
+
   }
 }
