@@ -26,5 +26,7 @@ namespace MongoRepository.Repository
     Task DeleteAsync(Expression<Func<TDocument, bool>> filterExpression);
     Task DeleteByIdAsync(string id);
     Task DeleteManyAsync(Expression<Func<TDocument, bool>> filterExpression);
+    Task<bool> IsExist(Expression<Func<TDocument, bool>> query);
+    Task<bool> IsExist(string id);
   }
 }

@@ -99,5 +99,11 @@ namespace MongoRepository.Repository
       var filter = Builders<TDocument>.Filter.Where(x => models.Contains(x));
       await _collection.DeleteManyAsync(filter);
     }
+
+    public async Task<bool> IsExist(Expression<Func<TDocument, bool>> query)
+      => _collection.AsQueryable().Any(query);
+    
+    public async Task<bool> IsExist(string id)
+      => _collection.AsQueryable().Any(x=> x.Id.Equals(id));
   }
 }
