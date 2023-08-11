@@ -1,0 +1,24 @@
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.AssemblyInfoInputs.cache
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.AssemblyInfo.cs
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.csproj.CoreCompileInputs.cache
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/MongoRepository.deps.json
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/MongoRepository.dll
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/ref/MongoRepository.dll
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/MongoRepository.pdb
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.csproj.AssemblyReference.cache
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.dll
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/ref/MongoRepository.dll
+D:/web development/projects/MongoRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.pdb
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/MongoRepository.deps.json
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/MongoRepository.dll
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/bin/Debug/net6.0/MongoRepository.pdb
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.csproj.AssemblyReference.cache
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.AssemblyInfoInputs.cache
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.AssemblyInfo.cs
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.csproj.CoreCompileInputs.cache
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.dll
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/refint/MongoRepository.dll
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/MongoRepository.pdb
+/Users/macbook/Projects/MongoGenericRepository/MongoRepository/MongoRepository/obj/Debug/net6.0/ref/MongoRepository.dll
