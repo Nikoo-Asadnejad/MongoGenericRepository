@@ -1,2 +1,2 @@
 # MongoGenericRepository
-A Class library contains generic  repository pattern for accessing Mongo db
+A Class library on top of mongoDriver which contains generic repository pattern for accessing Mongo db
